@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApplicationTraining2.model;
 
 namespace WebApplicationTraining2.Controllers
 {
@@ -14,6 +15,15 @@ namespace WebApplicationTraining2.Controllers
             int age = DateTime.Now.Year - birthDate.Year;
 
             return Ok($"Hello, my name is {name} and I am {age} years old.");
+        }
+
+        [HttpPost()]
+        public IActionResult GetFromStudent(Student student)
+        {
+            int age = DateTime.Now.Year - student.DateOfBirth.Year;
+
+            return Ok($"Hello, my name is {student.FullName} and I am {age} years old.");
+
         }
     }
 }
